@@ -34,6 +34,8 @@ README.md
 Le fichier `php/Dockerfile` va se charger d'installer "tout ce qu'il faut"...
 Le fichier `docker-compose.yaml` va créer les containers et attribuer les identifiants
 
+Ajoutez votre e-mail et votre nom pour la configuration Git en fin de fichier.
+
 
 ## B - INSTALLATION - UTILISATION
 
