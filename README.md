@@ -104,14 +104,12 @@ Vous pouvez utiliser directement le fichier app/assets/styles/app.css
 
 Vous pouvez également utiliser du SCSS comme suit :
 dans app/assets/styles :
-* supprimer le fichier app.css
-* créer un fichier app.scss
-* modifier le fichier app/assets/app.js à la ligne 8 :
-    * import './styles/app.scss'
+* supprimez le fichier app.css
+* créez un fichier app.scss
 * vous pouvez créer d'autres fichiers CSS tels que variables;css, fonts.css, etc. dans app/assets/styles/ puis vous les importez dans app/assets/app.js, par exemple :
 ```javascript
 import './styles/fonts.css'
 import './styles/variables.css'
-import './styles/app.scss'
+import './styles/app.css'
 ```
-* puis utiuliser une extansions VSCode comme Live Sass Compiler pour compiler les assets. Tous les fichiers seront dans app/assets/styles/
+* puis utiliser une extensions VSCode comme Live Sass Compiler pour compiler les assets. Tous les fichiers seront dans app/assets/styles/
