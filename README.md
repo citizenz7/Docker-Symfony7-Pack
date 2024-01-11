@@ -118,7 +118,7 @@ Tous les fichiers seront dans app/assets/styles/
 ##### 2. installer symfonycasts/sass-bundle composer
 `require symfonycasts/sass-bundle`
 
-Ajouter une ligne dans le base.html.twig :
+Faites pointer votre style dans votre template base.html.twig :
 ```twig
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('styles/app.scss') }}">
@@ -128,6 +128,8 @@ Ajouter une ligne dans le base.html.twig :
 puis builder les assets :
 `php bin/console sass:build --watch`
 
-Puis lors du déploiement en PROD :
-`php bin/console sass:build`
-`php bin/console asset-map:compile`
+Puis lors du déploiement en PROD, buildez et compilez :
+```bash
+php bin/console sass:build
+php bin/console asset-map:compile
+```
