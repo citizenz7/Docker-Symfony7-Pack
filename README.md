@@ -106,35 +106,36 @@ On peut changer cette limite dans le docker-compose.yaml
 Le CSS est placé dans app/assets/styles
 Vous pouvez utiliser directement le fichier app/assets/styles/app.css
 
-Vous pouvez également utiliser du SCSS comme suit :
-dans app/assets/styles :
-* supprimez le fichier app.css
-* créez un fichier app.scss
+Vous pouvez également utiliser du SCSS comme suit dans app/assets/styles :
+* renommez le fichier app.css en app.scss
 * vous pouvez créer d'autres fichiers CSS tels que variables.css, fonts.css, etc. dans app/assets/styles/ puis vous les importez dans app/assets/app.js, par exemple :
 ```javascript
 import './styles/fonts.css'
 import './styles/variables.css'
 import './styles/app.css'
 ```
+
 ##### 1. utiliser Live Sass Compiler dans VSCode pour compiler les assets
 Tous les fichiers seront dans app/assets/styles/
   
-##### 2. installer symfonycasts/sass-bundle composer
-`require symfonycasts/sass-bundle`
+##### 2. installer symfonycasts/sass-bundle
+a. `composer require symfonycasts/sass-bundle`
 
-Faites pointer votre style dans votre template base.html.twig :
+b. Faites pointer votre style dans votre template base.html.twig :
 ```twig
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('styles/app.scss') }}">
 {% endblock %}
 ```
+Vérifiez que vous avez bien `app.scss` ici.
 
-Buildez les assets en continu :
+c. Buildez les assets en continu :
 ```bash
 php bin/console sass:build --watch
 ```
+(Omettez le --watch pour builder "à la main")
 
-Puis, lors du déploiement en PROD, buildez et compilez :
+d. Puis, lors du déploiement en PROD, buildez et compilez :
 ```bash
 php bin/console sass:build
 php bin/console asset-map:compile
