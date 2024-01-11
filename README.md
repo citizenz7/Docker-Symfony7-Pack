@@ -56,6 +56,8 @@ A la racine du projet, dans un terminal :
 #### 4. Installer un package Javascript
 Exemple pour SplideJS :
 `php bin/console importmap:require @splidejs/splide`
+ou encore :
+`php bin/console importmap:require bootstrap`
 
 `php bin/console importmap:require monpackageJS` va remplir le fichier importmap.php à la racine de Symfony (app/).
 Ce fichier est lu et compilé.
@@ -71,7 +73,9 @@ Mettre à jour les packages JS : `php bin/console importmap:update`
 ... pour un seul package JS : `php bin/console importmap:update @splidejs/splide`
 
 #### 5. Déployer en PROD
-`php bin/console asset-map:compile`
+1. `php bin/console importmap:install`
+2. `php bin/console sass:build`
+3. `php bin/console asset-map:compile`
 
 #### 6. A vérifier...
 - est-ce que le serveur utilise HTTP/2 (ou même HTTP/3) ? (A configurer dans Apache)
@@ -125,11 +129,14 @@ Faites pointer votre style dans votre template base.html.twig :
 {% endblock %}
 ```
 
-puis builder les assets :
-`php bin/console sass:build --watch`
+Buildez les assets en continu :
+```bash
+php bin/console sass:build --watch
+```
 
-Puis lors du déploiement en PROD, buildez et compilez :
+Puis, lors du déploiement en PROD, buildez et compilez :
 ```bash
 php bin/console sass:build
 php bin/console asset-map:compile
 ```
+Le "compile" copiera physiquement tous les fichiers de vos répertoires mappés vers public/assets/ afin qu'ils soient servis directement par votre serveur Web.
