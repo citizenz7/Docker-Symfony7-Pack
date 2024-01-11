@@ -106,10 +106,12 @@ Vous pouvez également utiliser du SCSS comme suit :
 dans app/assets/styles :
 * supprimez le fichier app.css
 * créez un fichier app.scss
-* vous pouvez créer d'autres fichiers CSS tels que variables;css, fonts.css, etc. dans app/assets/styles/ puis vous les importez dans app/assets/app.js, par exemple :
+* vous pouvez créer d'autres fichiers CSS tels que variables.css, fonts.css, etc. dans app/assets/styles/ puis vous les importez dans app/assets/app.js, par exemple :
 ```javascript
 import './styles/fonts.css'
 import './styles/variables.css'
 import './styles/app.css'
 ```
 * puis utiliser une extensions VSCode comme Live Sass Compiler pour compiler les assets. Tous les fichiers seront dans app/assets/styles/
+* ou bien vous pouvez installer symfonycasts/sass-bundle composer require symfonycasts/sass-bundle puis builder les assets :
+`php bin/console sass:build --watch`
