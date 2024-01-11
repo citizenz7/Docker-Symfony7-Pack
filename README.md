@@ -112,6 +112,22 @@ import './styles/fonts.css'
 import './styles/variables.css'
 import './styles/app.css'
 ```
-* puis utiliser une extensions VSCode comme Live Sass Compiler pour compiler les assets. Tous les fichiers seront dans app/assets/styles/
-* ou bien vous pouvez installer symfonycasts/sass-bundle composer require symfonycasts/sass-bundle puis builder les assets :
+##### 1. utiliser Live Sass Compiler dans VSCode pour compiler les assets
+Tous les fichiers seront dans app/assets/styles/
+  
+##### 2. installer symfonycasts/sass-bundle composer
+`require symfonycasts/sass-bundle`
+
+Ajouter une ligne dans le base.html.twig :
+```twig
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/app.scss') }}">
+{% endblock %}
+```
+
+puis builder les assets :
 `php bin/console sass:build --watch`
+
+Puis lors du déploiement en PROD :
+`php bin/console sass:build`
+`php bin/console asset-map:compile
