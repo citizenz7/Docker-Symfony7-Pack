@@ -22,14 +22,14 @@
 Le projet possède l'architecture suivante :
 ```
 /apache/default.conf
-/app/ (ajouté lors de la création du projet Symfony au point 7)
-/mysql/
+/app (*)
+/mysql
 /php/Dockerfile
 .gitignore
 docker-compose.yaml
 README.md
 ```
-*Le répertoire app sera ajouté lors de la création du nouveau projet Symfony.*
+(*) Le répertoire /app sera ajouté lors de la création du nouveau projet Symfony.
 
 Le fichier `php/Dockerfile` va se charger d'installer "tout ce qu'il faut"...
 Le fichier `docker-compose.yaml` va créer les containers et attribuer les identifiants
@@ -40,11 +40,11 @@ Ajoutez votre e-mail et votre nom pour la configuration Git en fin de fichier.
 ## B - INSTALLATION - UTILISATION
 
 #### 1. Installer un nouveau projet Symfony
-A la racine du projet :
+A la racine du projet, créez un nouveau projet Symfony :
 `symfony new --webapp app`
 
 #### 2. Lancer Docker :
-A la racine du projet, dans un terminal :
+A la racine du projet, éxécutez dans un terminal :
 `docker-compose up`
 
 #### 3. Utiliser la Symfony CLI
@@ -56,10 +56,10 @@ A la racine du projet, dans un terminal :
 #### 4. Installer un package Javascript
 Exemple pour SplideJS :
 `php bin/console importmap:require @splidejs/splide`
-ou encore :
+Exemple pour Bootstrap :
 `php bin/console importmap:require bootstrap`
 
-`php bin/console importmap:require monpackageJS` va remplir le fichier importmap.php à la racine de Symfony (app/).
+`php bin/console importmap:require monpackageJS` va remplir le fichier importmap.php à la racine de Symfony (/app).
 Ce fichier est lu et compilé.
 
 Les fichiers du package JS sont placés dans app/assets/vendor
@@ -74,7 +74,7 @@ Mettre à jour les packages JS : `php bin/console importmap:update`
 
 #### 5. Déployer en PROD
 1. `php bin/console importmap:install`
-2. `php bin/console sass:build`
+2. `php bin/console sass:build` (si vous utilisez du SCSS)
 3. `php bin/console asset-map:compile`
 
 #### 6. A vérifier...
